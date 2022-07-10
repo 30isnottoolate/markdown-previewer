@@ -6,7 +6,14 @@ class MarkdownPreviewer extends React.Component {
   render() {
     return (
       <div id="app">
-        <p>Greetings, human!</p>
+        <div id="editor-container">
+          <div className="container-head">Editor</div>
+          <textarea id="editor"></textarea>
+        </div>
+        <div id="preview-container">
+          <div className="container-head">Preview</div>
+          <div id="preview" />
+        </div>
       </div>
     );
   }
