@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './app_styles.css';
 import { marked } from 'marked';
 
+marked.setOptions({
+  breaks: true
+});
+
 let defaultText = `# This is a Markdown Previewer!
+
+---
 
 ## This is a sub-heading.
 
