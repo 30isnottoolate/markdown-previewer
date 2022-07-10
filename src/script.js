@@ -9,13 +9,19 @@ class MarkdownPreviewer extends React.Component {
     this.state = {
       markdown: "## This is a sub-heading."
     }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    this.setState({
+      markdown: e.target.value
+    });
   }
   render() {
     return (
       <div id="app">
         <div id="editor-container">
           <div className="container-head">Editor</div>
-          <textarea id="editor"></textarea>
+          <textarea id="editor" onChange={this.handleChange} value={this.state.markdown}></textarea>
         </div>
         <div id="preview-container">
           <div className="container-head">Preview</div>
