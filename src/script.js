@@ -55,6 +55,11 @@ class MarkdownPreviewer extends React.Component {
     });
   }
   render() {
+
+    const parseMarkDown = (input) => {
+      return { __html: marked.parse(input) };
+    }
+
     return (
       <div id="app">
         <div id="editor-container">
@@ -63,7 +68,7 @@ class MarkdownPreviewer extends React.Component {
         </div>
         <div id="preview-container">
           <div className="container-head">Preview</div>
-          <div id="preview" dangerouslySetInnerHTML={{ __html: marked.parse(this.state.markdown) }} />
+          <div id="preview" dangerouslySetInnerHTML={parseMarkDown(this.state.markdown)} />
         </div>
       </div>
     );
