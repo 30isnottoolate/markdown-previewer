@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './app_styles.css';
+import { marked } from 'marked';
 
 class MarkdownPreviewer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      markdown: "## This is a sub-heading."
+    }
+  }
   render() {
     return (
       <div id="app">
@@ -12,7 +19,7 @@ class MarkdownPreviewer extends React.Component {
         </div>
         <div id="preview-container">
           <div className="container-head">Preview</div>
-          <div id="preview" />
+          <div id="preview" dangerouslySetInnerHTML={{ __html: marked.parse(this.state.markdown) }} />
         </div>
       </div>
     );
